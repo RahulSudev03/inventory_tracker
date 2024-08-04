@@ -1,4 +1,3 @@
-// app/page.js
 "use client"; // Ensure this file is treated as a client component
 
 import { useState, useEffect } from 'react';
@@ -7,6 +6,7 @@ import { ThemeProvider, useTheme } from '@mui/material/styles';
 import theme from './theme'; // Adjusted relative import path
 import { firestore } from '@/firebase';
 import { collection, getDocs, query, getDoc, setDoc, doc, deleteDoc } from 'firebase/firestore';
+import CameraCapture from './CameraCapture'; // Import CameraCapture component
 
 function Home() {
   const theme = useTheme();
@@ -125,6 +125,13 @@ function Home() {
       >
         Add New Item
       </Button>
+      <Button
+        variant="contained"
+        onClick={() => document.getElementById('camera-capture').scrollIntoView()}
+        style={{ backgroundColor: theme.palette.primary.main, color: theme.palette.primary.contrastText }}
+      >
+        Add Using Camera
+      </Button>
       <TextField
         variant='outlined'
         placeholder="Search items"
@@ -147,7 +154,7 @@ function Home() {
         </Box>
         <Box
           width="100%"
-          maxHeight="300px" // Set a max height to enable scrolling
+          maxHeight="300px"
           overflow="auto"
           padding={2}
         >
@@ -185,6 +192,10 @@ function Home() {
           </Stack>
         </Box>
       </Box>
+      {/* Include CameraCapture component */}
+      <div id="camera-capture">
+        <CameraCapture />
+      </div>
     </Box>
   );
 }
@@ -196,6 +207,8 @@ export default function App() {
     </ThemeProvider>
   );
 }
+
+
 
 
 
