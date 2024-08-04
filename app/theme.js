@@ -1,9 +1,9 @@
-// theme.js
+// app/theme.js
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
     typography: {
-        fontFamily: 'Roboto, sans-serif', // Use Roboto font
+        fontFamily: 'Roboto, sans-serif', // Use the Roboto font
     },
     palette: {
         primary: {
@@ -21,4 +21,5 @@ const theme = createTheme({
 });
 
 export default theme;
+
 
